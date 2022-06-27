@@ -11,6 +11,8 @@ import ErrorBoundary from './components/ErrorBoundary';
 
 initSagas();
 
+console.log('app render');
+
 render(
   <Provider store={store}>
     <HashRouter>
