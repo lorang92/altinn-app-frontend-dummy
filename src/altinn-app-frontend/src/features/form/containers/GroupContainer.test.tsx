@@ -166,62 +166,6 @@ describe('GroupContainer', () => {
     setScreenWidth(1200);
   });
 
-  it('should render add new button with custom label when supplied', () => {
-    const mockContainerWithLabel: ILayoutGroup = {
-      textResourceBindings: {
-        add_button: 'person',
-      },
-      ...mockContainer,
-    };
-    render({ container: mockContainerWithLabel });
-
-    const item = screen.getByText('Legg til ny person');
-    expect(item).toBeInTheDocument();
-  });
-
-  it('should not show add button when maxOccurs is reached', () => {
-    const mockContainerWithMaxCount = {
-      ...mockContainer,
-      maxCount: 3,
-    };
-    render({ container: mockContainerWithMaxCount });
-
-    const addButton = screen.queryByText('Legg til ny');
-    expect(addButton).not.toBeInTheDocument();
-  });
-
-  it('should show option label when displaying selection components', () => {
-    render();
-
-    const item = screen.getByText('Value to be shown');
-    expect(item).toBeInTheDocument();
-  });
-
-  it('should trigger validate when closing edit mode if validation trigger is present', () => {
-    const mockContainerInEditModeWithTrigger = {
-      ...mockContainer,
-      id: 'container-in-edit-mode-id',
-      triggers: [Triggers.Validation],
-    };
-
-    const store = render({ container: mockContainerInEditModeWithTrigger });
-
-    const editButton = screen.getAllByText('Rediger')[0].closest('button');
-    fireEvent.click(editButton);
-
-    const mockDispatchedAction = {
-      payload: {
-        group: 'container-in-edit-mode-id',
-        index: -1,
-        validate: true,
-      },
-      type: 'formLayout/updateRepeatingGroupsEditIndex',
-    };
-
-    expect(store.dispatch).toHaveBeenCalledTimes(1);
-    expect(store.dispatch).toHaveBeenCalledWith(mockDispatchedAction);
-  });
-
   it('should NOT trigger validate when closing edit mode if validation trigger is NOT present', () => {
     const mockContainerInEditMode = {
       ...mockContainer,
