@@ -18,6 +18,9 @@ jobs:
           ref: ${{ github.event.workflow_run.head_branch }}
           fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
 
+      - name: run ls
+        run: ls
+
       - name: 'Download artifact'
         uses: actions/github-script@v6
         with:
