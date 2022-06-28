@@ -47,6 +47,9 @@ jobs:
             fs.writeFileSync('${{github.workspace}}/code-coverage.zip', Buffer.from(download.data));
       - run: unzip code-coverage.zip
 
+      - name: run ls after unzip
+        run: ls
+
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
