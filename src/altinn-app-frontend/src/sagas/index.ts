@@ -36,6 +36,7 @@ function* root(): SagaIterator {
   yield fork(FormValidationSagas);
   yield fork(PartySagas);
   yield fork(ApplicationSettingsSagas);
+  yield fork(ApplicationMetadataSagas);
   yield fork(InstantiationSagas);
   yield fork(OrgsSagas);
   yield fork(InstanceDataSagas);
@@ -44,5 +45,7 @@ function* root(): SagaIterator {
   yield fork(QueueSagas);
   yield fork(OptionSagas);
 }
+
+console.log('asdf')
 
 export const initSagas = ()  => sagaMiddleware.run(root);
