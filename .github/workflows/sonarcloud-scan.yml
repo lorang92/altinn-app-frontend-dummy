@@ -2,8 +2,6 @@ name: SonarCloud Scan
 on:
   workflow_run:
     workflows: ['Build and run unit tests']
-    branches:
-      - '!main'
     types:
       - completed
 
