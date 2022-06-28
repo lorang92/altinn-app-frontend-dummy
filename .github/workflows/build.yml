@@ -48,5 +48,5 @@ jobs:
           if-no-files-found: error
           name: code-coverage
           path: |
-            ./*/src/altinn-app-frontend/coverage/lcov.info
-            ./*/src/shared/coverage/lcov.info
+            src*/altinn-app-frontend/coverage/lcov.info
+            src*/shared/coverage/lcov.info
