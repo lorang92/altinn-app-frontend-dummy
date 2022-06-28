@@ -1,5 +1,6 @@
 name: SonarCloud Scan
 on:
+  workflow_dispatch:
   workflow_run:
     workflows: ['Build and run unit tests']
     types:
