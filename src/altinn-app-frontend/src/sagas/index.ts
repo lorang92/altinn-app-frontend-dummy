@@ -35,7 +35,6 @@ function* root(): SagaIterator {
   yield fork(ProfileSagas);
   yield fork(FormValidationSagas);
   yield fork(PartySagas);
-  yield fork(ApplicationMetadataSagas);
   yield fork(ApplicationSettingsSagas);
   yield fork(InstantiationSagas);
   yield fork(OrgsSagas);
